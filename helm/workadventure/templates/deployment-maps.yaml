@@ -55,7 +55,9 @@ spec:
               value: "{{- .Values.env.debugMode -}}"
               #TODO : ADMIN_API_URL
               #TODO : API_URL
-            {{ toYaml .Values.maps.extraEnvs | nindent 12 }}
+            {{- with .Values.maps.extraEnvs }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -31,11 +31,11 @@ back:
     pullPolicy: IfNotPresent
 
   # Env back
-  env: {}    
+  env: {}
 
-  extraEnvs: 
-    - name: KEY
-      value: value
+  extraEnvs: []
+    # - name: KEY
+    #   value: value
 
   autoscaling:
     enabled: true
@@ -54,12 +54,12 @@ back:
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
     hosts:
-      - host: api # FQDN is computed with this and domain
+      - host: api  # FQDN is computed with this and domain
         paths: [/]
     tls:
-      - secretName: back-tls      
+      - secretName: back-tls
         hosts:
-          - api # FQDN is computed with this and domain
+          - api  # FQDN is computed with this and domain
 #################### workadventure-back ####################
 
 #################### workadventure-front ####################
@@ -79,9 +79,9 @@ front:
     startRoomUniverse: "global"
     startRoomPath: "/Floor0/floor0.json"
 
-  extraEnvs: 
-    - name: KEY
-      value: value
+  extraEnvs: []
+    # - name: KEY
+    #   value: value
 
   autoscaling:
     enabled: true
@@ -106,7 +106,7 @@ front:
       - secretName: front-tls
         hosts:
           - play
-  
+
 #################### workadventure-front ####################
 
 
@@ -122,9 +122,9 @@ pusher:
   # Env front
   env: {}
 
-  extraEnvs: 
-    - name: KEY
-      value: value
+  extraEnvs: []
+    # - name: KEY
+    #   value: value
 
   autoscaling:
     enabled: true
@@ -148,7 +148,7 @@ pusher:
     tls:
       - secretName: pusher-tls
         hosts:
-          - pusher  
+          - pusher
 #################### workadventure-pusher ####################
 
 
@@ -164,9 +164,9 @@ uploader:
   # Env front
   env: {}
 
-  extraEnvs: 
-    - name: KEY
-      value: value
+  extraEnvs: []
+    # - name: KEY
+    #   value: value
 
   autoscaling:
     enabled: true
@@ -206,9 +206,9 @@ maps:
   # Env front
   env: {}
 
-  extraEnvs: 
-    - name: KEY
-      value: value
+  extraEnvs: []
+    # - name: KEY
+    #   value: value
 
   autoscaling:
     enabled: true
@@ -232,7 +232,7 @@ maps:
     tls:
       - secretName: maps-tls
         hosts:
-          - maps 
+          - maps
 #################### workadventure-maps ####################
 
 serviceAccount:
@@ -257,8 +257,6 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-
-
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -270,8 +268,6 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
-
-
 
 nodeSelector: {}
 

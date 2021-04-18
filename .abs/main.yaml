@@ -1,0 +1,8 @@
+replace-chart-version-with-git: true
+generate-metadata: true
+chart-dir: helm/workadventure
+destination: ./build
+
+catalog-base-url: https://giantswarm.github.com/playground-catalog/
+
+skip-steps: test_all

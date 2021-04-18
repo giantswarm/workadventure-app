@@ -67,7 +67,9 @@ spec:
             - name: 'SECRET_JITSI_KEY'
               value: "{{- .Values.env.secretJitsiKey -}}"
               #TODO : ADMIN_API_URL
-            {{ toYaml .Values.back.extraEnvs | nindent 12 }}
+            {{- with .Values.back.extraEnvs }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

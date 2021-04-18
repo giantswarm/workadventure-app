@@ -55,7 +55,9 @@ spec:
               value: "*"
               #TODO : ADMIN_API_URL
               #TODO : API_URL
-            {{ toYaml .Values.uploader.extraEnvs | nindent 12 }}
+            {{- with .Values.uploader.extraEnvs }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

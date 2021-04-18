@@ -74,7 +74,9 @@ spec:
               value: "{{- .Values.front.env.turnPassword -}}"
             - name: "START_ROOM_URL"
               value: {{ include "workadventure.startRoomUrl" . }}
-            {{ toYaml .Values.front.extraEnvs | nindent 12 }}
+            {{- with .Values.front.extraEnvs }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
