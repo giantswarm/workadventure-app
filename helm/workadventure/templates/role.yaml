@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "workadventure.serviceAccountName" . }}-psp
+  labels:
+    {{- include "workadventure.labels" . | nindent 4 }}
+rules:
+  - apiGroups:
+      - policy
+    resources:
+      - podsecuritypolicies
+    verbs:
+      - use
+    resourceNames:
+      - {{ include "workadventure.serviceAccountName" . }}
