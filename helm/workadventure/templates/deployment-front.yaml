@@ -30,11 +30,11 @@ spec:
       {{- end }}
       serviceAccountName: {{ include "workadventure.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.front.podSecurityContext | nindent 8 }}
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- toYaml .Values.front.securityContext | nindent 12 }}
           image: "{{ .Values.front.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.front.image.pullPolicy }}
           ports:

@@ -83,9 +83,8 @@ front:
     # - name: KEY
     #   value: value
 
-  podSecurityContext:
+  securityContext:
     allowPrivilegeEscalation: true
-
 
   autoscaling:
     enabled: true
@@ -214,7 +213,7 @@ maps:
     # - name: KEY
     #   value: value
 
-  podSecurityContext:
+  securityContext:
     allowPrivilegeEscalation: true
 
   autoscaling:
