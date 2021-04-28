@@ -83,6 +83,10 @@ front:
     # - name: KEY
     #   value: value
 
+  podSecurityContext:
+    allowPrivilegeEscalation: true
+
+
   autoscaling:
     enabled: true
     minReplicas: 1
@@ -209,6 +213,9 @@ maps:
   extraEnvs: []
     # - name: KEY
     #   value: value
+
+  podSecurityContext:
+    allowPrivilegeEscalation: true
 
   autoscaling:
     enabled: true
