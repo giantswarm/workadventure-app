@@ -6,7 +6,7 @@ metadata:
     {{- include "workadventure.labels" . | nindent 4 }}
 spec:
   privileged: false
-  # Required to prevent escalations to root.
+  # Required to allow usage of sudo.
   allowPrivilegeEscalation: true
   # This is redundant with non-root + disallow privilege escalation,
   # but we can provide it for defense in depth.
@@ -34,12 +34,12 @@ spec:
     rule: 'MustRunAs'
     ranges:
       # Forbid adding the root group.
-      - min: 1
-        max: 65535
+      - min: 1000
+        max: 1000
   fsGroup:
     rule: 'MustRunAs'
     ranges:
       # Forbid adding the root group.
-      - min: 1
-        max: 65535
+      - min: 1000
+        max: 1000
   readOnlyRootFilesystem: false

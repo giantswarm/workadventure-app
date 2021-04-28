@@ -84,6 +84,8 @@ front:
     #   value: value
 
   securityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
     allowPrivilegeEscalation: true
 
   autoscaling:
@@ -214,6 +216,8 @@ maps:
     #   value: value
 
   securityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
     allowPrivilegeEscalation: true
 
   autoscaling:
@@ -255,7 +259,9 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
   # capabilities:
   #   drop:
   #   - ALL
