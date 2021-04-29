@@ -54,12 +54,12 @@ back:
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
     hosts:
-      - host: api  # FQDN is computed with this and domain
+      - host: back  # FQDN is computed with this and domain
         paths: [/]
     tls:
       - secretName: back-tls
         hosts:
-          - api  # FQDN is computed with this and domain
+          - back  # FQDN is computed with this and domain
 #################### workadventure-back ####################
 
 #################### workadventure-front ####################
