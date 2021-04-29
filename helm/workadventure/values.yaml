@@ -84,8 +84,6 @@ front:
     #   value: value
 
   securityContext:
-    runAsUser: 1000
-    runAsGroup: 1000
     allowPrivilegeEscalation: true
 
   autoscaling:
@@ -216,8 +214,6 @@ maps:
     #   value: value
 
   securityContext:
-    runAsUser: 1000
-    runAsGroup: 1000
     allowPrivilegeEscalation: true
 
   autoscaling:
