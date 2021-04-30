@@ -74,8 +74,8 @@ front:
   # Env front
   env:
     turnServer: "turn:coturn.workadventu.re:443,turns:coturn.workadventu.re:443"
-    turnUser: "workadventure"
-    turnPassword: "WorkAdventure123"
+    turnUser: ""
+    turnPassword: ""
     startRoomUniverse: "global"
     startRoomPath: "/Floor0/floor0.json"
 
