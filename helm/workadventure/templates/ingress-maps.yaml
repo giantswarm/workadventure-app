@@ -1,4 +1,4 @@
-{{- if .Values.maps.ingress.enabled -}}
+{{- if and (.Values.maps.enabled) (.Values.maps.ingress.enabled) -}}
 {{- $svcPort := .Values.maps.service.port -}}
 {{- $name := include "workadventure.maps.name" . -}}
 {{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}
@@ -22,7 +22,7 @@ spec:
   tls:
     {{- range .Values.maps.ingress.tls }}
     - hosts:
-        {{- range .hosts }}        
+        {{- range .hosts }}
         {{ $fqdn := printf "%s.%s" . $.Values.domain -}}
         - {{ $fqdn }}
         {{- end }}
@@ -45,4 +45,5 @@ spec:
                   number: {{ $svcPort }}
           {{- end }}
       {{- end }}
+{{- end }}
 {{- end }}

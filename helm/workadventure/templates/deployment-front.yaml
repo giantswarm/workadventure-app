@@ -56,8 +56,10 @@ spec:
               value: "{{- .Values.env.debugMode -}}"
             - name: 'API_URL'
               value: {{ include "workadventure.pusherUrl" . }}
+            {{- if .Values.uploader.enabled }}
             - name: 'UPLOADER_URL'
               value: {{ include "workadventure.uploaderUrl" . }}
+            {{- end }}
             - name: 'ADMIN_URL'
               value: "{{- .Values.domain -}}"
             - name: 'JITSI_URL'

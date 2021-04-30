@@ -1,3 +1,4 @@
+{{- if .Values.uploader.enabled }}
 {{- $name := include "workadventure.uploader.name" . -}}
 apiVersion: apps/v1
 kind: Deployment
@@ -70,3 +71,4 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+{{- end }}

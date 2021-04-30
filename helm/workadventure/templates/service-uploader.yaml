@@ -1,3 +1,4 @@
+{{- if .Values.uploader.enabled }}
 {{- $name := include "workadventure.uploader.name" . -}}
 apiVersion: v1
 kind: Service
@@ -15,3 +16,4 @@ spec:
   selector:
     {{- include "workadventure.selectorLabels" . | nindent 4 }}
     app.kubernetes.io/type: "{{ .Values.uploader.name }}"
+{{- end }}

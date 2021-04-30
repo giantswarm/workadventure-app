@@ -157,6 +157,7 @@ pusher:
 
 #################### workadventure-uploader ####################
 uploader:
+  enabled: false
   name: "uploader"
   replicaCount: 2
 
@@ -199,6 +200,7 @@ uploader:
 
 #################### workadventure-maps ####################
 maps:
+  enabled: false
   name: "maps"
   replicaCount: 2
 
