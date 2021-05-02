@@ -1,0 +1,59 @@
+domain: "f9ow5.k8s.ginger.eu-west-1.aws.gigantic.io"
+
+env:
+  secretKey: "ding-dong-something-random"
+  adminApiToken: "dong-ding-random-something"
+  jitsiIss: ""
+  jitsiUrl: "meet.jit.si"
+  secretJitsiKey: ""
+  jitsiPrivateMode: false
+  debugMode: false
+
+back:
+  replicaCount: 1
+  autoscaling:
+    enabled: false
+
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-giantswarm"
+
+front:
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-giantswarm"
+
+pusher:
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-giantswarm"
+
+uploader:
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-giantswarm"
+
+maps:
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-giantswarm"

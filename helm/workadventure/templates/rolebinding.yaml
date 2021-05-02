@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "workadventure.serviceAccountName" . }}-psp
+  labels:
+    {{- include "workadventure.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ include "workadventure.serviceAccountName" . }}-psp
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "workadventure.serviceAccountName" . }}
+    namespace: {{ .Release.Namespace }}

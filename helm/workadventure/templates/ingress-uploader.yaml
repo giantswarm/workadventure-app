@@ -1,4 +1,4 @@
-{{- if .Values.uploader.ingress.enabled -}}
+{{- if and (.Values.uploader.enabled) (.Values.uploader.ingress.enabled) -}}
 {{- $svcPort := .Values.uploader.service.port -}}
 {{- $name := include "workadventure.uploader.name" . -}}
 {{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}
@@ -22,7 +22,7 @@ spec:
   tls:
     {{- range .Values.uploader.ingress.tls }}
     - hosts:
-        {{- range .hosts }}        
+        {{- range .hosts }}
         {{ $fqdn := printf "%s.%s" . $.Values.domain -}}
         - {{ $fqdn }}
         {{- end }}

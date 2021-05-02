@@ -1,4 +1,4 @@
-{{- if .Values.uploader.autoscaling.enabled }}
+{{- if and (.Values.uploader.enabled) (.Values.uploader.autoscaling.enabled) -}}
 {{- $name := include "workadventure.uploader.name" . -}}
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler

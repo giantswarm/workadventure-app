@@ -1,4 +1,4 @@
-{{- if .Values.maps.autoscaling.enabled }}
+{{- if and (.Values.maps.enabled) (.Values.maps.autoscaling.enabled) -}}
 {{- $name := include "workadventure.maps.name" . -}}
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler

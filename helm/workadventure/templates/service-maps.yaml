@@ -1,3 +1,4 @@
+{{- if .Values.maps.enabled }}
 {{- $name := include "workadventure.maps.name" . -}}
 apiVersion: v1
 kind: Service
@@ -15,3 +16,4 @@ spec:
   selector:
     {{- include "workadventure.selectorLabels" . | nindent 4 }}
     app.kubernetes.io/type: "{{ .Values.maps.name }}"
+{{- end }}

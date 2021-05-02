@@ -54,12 +54,12 @@ back:
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
     hosts:
-      - host: api  # FQDN is computed with this and domain
+      - host: back  # FQDN is computed with this and domain
         paths: [/]
     tls:
       - secretName: back-tls
         hosts:
-          - api  # FQDN is computed with this and domain
+          - back  # FQDN is computed with this and domain
 #################### workadventure-back ####################
 
 #################### workadventure-front ####################
@@ -74,14 +74,17 @@ front:
   # Env front
   env:
     turnServer: "turn:coturn.workadventu.re:443,turns:coturn.workadventu.re:443"
-    turnUser: "workadventure"
-    turnPassword: "WorkAdventure123"
+    turnUser: ""
+    turnPassword: ""
     startRoomUniverse: "global"
     startRoomPath: "/Floor0/floor0.json"
 
   extraEnvs: []
     # - name: KEY
     #   value: value
+
+  securityContext:
+    allowPrivilegeEscalation: true
 
   autoscaling:
     enabled: true
@@ -154,6 +157,7 @@ pusher:
 
 #################### workadventure-uploader ####################
 uploader:
+  enabled: false
   name: "uploader"
   replicaCount: 2
 
@@ -196,6 +200,7 @@ uploader:
 
 #################### workadventure-maps ####################
 maps:
+  enabled: false
   name: "maps"
   replicaCount: 2
 
@@ -209,6 +214,9 @@ maps:
   extraEnvs: []
     # - name: KEY
     #   value: value
+
+  securityContext:
+    allowPrivilegeEscalation: true
 
   autoscaling:
     enabled: true
@@ -249,7 +257,9 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
   # capabilities:
   #   drop:
   #   - ALL
